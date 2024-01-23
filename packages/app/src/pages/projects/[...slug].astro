@@ -2,9 +2,10 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection("project");
-
   return posts
     .filter((p) => ["published", "draft", "archived"].includes(p.data.status))
     .map((post) => ({
@@ -15,6 +16,9 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"project">;
 
 const post = Astro.props;
+if (!post) {
+  return Astro.redirect("/404");
+}
 const { Content } = await post.render();
 ---
 
