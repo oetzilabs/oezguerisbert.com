@@ -7,12 +7,12 @@ export default function ThemeButton(props: { theme: "light" | "dark" }) {
     setT((t) => (t === "light" ? "dark" : "light"));
     document.cookie = `theme=${props.theme === "light" ? "dark" : "light"}`;
     // get the html element
-    const html = document.querySelector("html");
+    const html = document.querySelector("html")!;
     // set the theme
     html.classList.toggle("dark");
   };
   onMount(() => {
-    const handler = (e) => {
+    const handler = (e: KeyboardEvent) => {
       // keybind to toggle theme
       if (e.key === "x" && e.ctrlKey) {
         // set cookie
