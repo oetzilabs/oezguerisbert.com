@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogPost from "../layouts/BlogPost.astro";
+import { getEntry } from "astro:content";
+type Props = CollectionEntry<"index">;
+const post = await getEntry({ collection: "index", slug: "about" });
+
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data}>
+  <Content />
+</BlogPost>

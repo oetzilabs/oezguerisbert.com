@@ -1,0 +1,38 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const projects = (await getCollection("project"))
+  .filter((p) => ["published", "draft", "archived"].includes(p.data.status))
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+---
+
+<MainLayout small>
+  <section class="flex flex-col w-full">
+    {
+      projects.length > 0 ? (
+        <ul class="flex flex-col w-full">
+          {projects.map((post) => (
+            <li class="flex flex-col w-full border border-neutral-300 dark:border-neutral-800 p-4 rounded-md bg-neutral-100 dark:bg-neutral-900 shadow-sm">
+              <a href={`/projects/${post.slug}/`} class="flex flex-col w-full gap-4">
+                <img src={post.data.heroImage} alt="" class="rounded-md" />
+                <div class="flex flex-col gap-3">
+                  <p class="text-xs text-neutral-500">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                  <div class="flex flex-col gap-1">
+                    <h1 class="font-bold text-lg w-full">{post.data.title}</h1>
+                    <span class="font-medium text-md w-full">{post.data.description}</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-center">There are currently no projects.</p>
+      )
+    }
+  </section>
+</MainLayout>
