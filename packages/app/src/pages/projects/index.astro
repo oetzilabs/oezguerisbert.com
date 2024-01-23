@@ -3,6 +3,8 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
+export const prerender = true;
+
 const projects = (await getCollection("project"))
   .filter((p) => ["published", "draft", "archived"].includes(p.data.status))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
