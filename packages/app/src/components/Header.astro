@@ -2,12 +2,26 @@
 import HeaderLink from "./HeaderLink.astro";
 import ThemeSwitch from "./ThemeSwitch";
 import { SITE_TITLE } from "../consts";
+
+export type Props = {
+  small?: boolean;
+  title: string;
+};
+
+const { small } = Astro.props;
 ---
 
 <header
   class="fixed top-0 w-full flex flex-row items-center justify-center border-b border-neutral-300 dark:border-neutral-800 bg-white dark:bg-black"
 >
-  <nav class="container gap-2 mx-auto flex flex-row items-center justify-between px-4 py-2">
+  <nav
+    class:list={[
+      "container gap-2 mx-auto flex flex-row items-center justify-between px-4 py-2",
+      {
+        [`max-w-[800px]`]: !!small,
+      },
+    ]}
+  >
     <a href="/"><h2 class="w-max font-bold">{SITE_TITLE}</h2></a>
     <div class="container flex flex-row items-center justify-center gap-2">
       <HeaderLink href="/">Home</HeaderLink>

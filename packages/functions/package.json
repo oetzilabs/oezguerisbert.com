@@ -15,7 +15,7 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.126",
     "@types/node": "20.9.0",
-    "sst": "2.39.7",
+    "sst": "2.40.1",
     "vitest": "0.34.6"
   }
 }
