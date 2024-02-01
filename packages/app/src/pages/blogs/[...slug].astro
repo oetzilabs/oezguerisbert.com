@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog");
 
   return posts
-    .filter((p) => ["published", "draft", "archived"].includes(p.data.status))
+    .filter((p) => ["published", "draft", "archived", "hidden"].includes(p.data.status))
     .map((post) => ({
       params: { slug: post.slug },
       props: post,

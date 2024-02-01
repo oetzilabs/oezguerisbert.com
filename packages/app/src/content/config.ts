@@ -10,7 +10,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
-    status: z.enum(["draft", "published", "archived", "hidden"]),
+    status: z.enum(["draft", "published", "archived", "hidden", "template"]),
   }),
 });
 
@@ -24,22 +24,8 @@ const project = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
-    status: z.enum(["draft", "published", "archived", "hidden"]),
+    status: z.enum(["draft", "published", "archived", "hidden","template"]),
   }),
 });
 
-const index = defineCollection({
-  type: "content",
-  // Type-check frontmatter using a schema
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    // Transform string to Date object
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    heroImage: z.string().optional(),
-    status: z.enum(["draft", "published", "archived", "hidden"]),
-  }),
-});
-
-export const collections = { blog, project, index };
+export const collections = { blog, project };
