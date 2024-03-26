@@ -12,7 +12,7 @@ I have my account since a couple years, and streamed very sparodically, but late
 
 ## Why Twitch?
 
-Well, mostly because I don't have to set up much to share my journey to people. Why not stream over at YouTube or other plattforms? I feel more at home over at Twitch, than on YouTube! Other platforms do not interest me at all, even though I have made my accounts there, just in case.
+Well, mostly because I don't have to set up much to share my journey to people. Why not stream over at YouTube or other platforms? I feel more at home [over at Twitch](https://twitch.tv/oetziofficial), than on YouTube! Other platforms do not interest me at all, even though I have made my accounts there, just in case.
 
 ## What projects are been worked on?
 
