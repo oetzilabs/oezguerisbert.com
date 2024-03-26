@@ -1,9 +1,9 @@
 ---
-title: 'I stream on Twitch!'
+title: "I stream on Twitch!"
 description: "Well, long time I have not written any Blog on what I am doing currently. Nothing changed much, except that I started streaming more often on Twitch."
-pubDate: 'Mar 26 2024 8:00:00 GMT+0100'
+pubDate: "Mar 26 2024 8:00:00 GMT+0100"
 # heroImage: '/twitch-streams-hero.webp'
-status: 'draft'
+status: "published"
 ---
 
 Twitch, a live-stream plattform, has many categories including [Software And Game Development](https://www.twitch.tv/directory/game/Software%20and%20Game%20Development) where many people like me are coding different projects and chat with their audience.
@@ -20,15 +20,15 @@ Pretty simple. Mostly it's hobby projects, since I am unemployed. I work on a co
 
 The tech stack is simple:
 
-- SST (AWS CDK)
-- PostgreSQL (NeonDatabase)
-- SolidStart (1.0.0-rc.0)
-- TanStack Solid
-- SolidJS
-- Solid Primitives
-- Leaflet
-- Lucia Auth (Oslo, Lucia)
-- DrizzleORM
+-   SST (AWS CDK)
+-   PostgreSQL (NeonDatabase)
+-   SolidStart (1.0.0-rc.0)
+-   TanStack Solid
+-   SolidJS
+-   Solid Primitives
+-   Leaflet
+-   Lucia Auth (Oslo, Lucia)
+-   DrizzleORM
 
 ...(probably more)
 
