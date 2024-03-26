@@ -12,11 +12,11 @@ const { title, description, pubDate, updatedDate, heroImage, status } = Astro.pr
 const posts = (await getCollection("blog"))
   .filter((p) => !pathname.includes(p.slug))
   .filter((p) => ["published", "draft", "archived"].includes(p.data.status))
-  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .sort((a, b) => (a.data.updatedDate ?? a.data.pubDate).valueOf() - (b.data.updatedDate ?? b.data.pubDate).valueOf())
   .slice(0, 3);
 ---
 
-<MainLayout>
+<MainLayout small>
   <article class="flex flex-col w-full">
     <div class="w-full flex flex-col rounded-md overflow-clip">
       {heroImage && <img src={heroImage} alt="" />}
@@ -124,7 +124,7 @@ const posts = (await getCollection("blog"))
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
                   {posts.map((b) => (
                     <a
-                      href={`/blog/${b.slug}`}
+                      href={`/blogs/${b.slug}`}
                       class="w-full border border-neutral-300 dark:border-neutral-700 rounded-md p-4 bg-white dark:bg-black no-underline shadow-none hover:shadow-md transition-shadow duration-200 ease-in-out gap-2 flex flex-col items-start justify-start"
                     >
                       <FormattedDate date={b.data.pubDate} />

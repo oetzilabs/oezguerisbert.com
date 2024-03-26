@@ -15,6 +15,7 @@ export function AstroStack({ stack, app }: StackContext) {
       domainAlias: `www.${dns.domain}`,
       hostedZone: dns.zone.zoneName,
     },
+    runtime: "nodejs20.x",
   });
 
   stack.addOutputs({
