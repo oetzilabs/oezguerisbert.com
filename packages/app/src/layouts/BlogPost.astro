@@ -3,6 +3,9 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import MainLayout from "./MainLayout.astro";
 import ClientFormattedDate from "../components/FormattedDate.client";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 const { pathname } = Astro.url;
 
@@ -104,7 +107,13 @@ const posts = (await getCollection("blog"))
             {
               updatedDate && (
                 <div class="text-xs flex flex-row gap-2 items-center">
-                  Last updated <ClientFormattedDate relative date={updatedDate} client:load />
+                  <span>Last updated</span>
+                  <time
+                    datetime={updatedDate.toISOString()}
+                    class="text-neutral-500 border border-neutral-300 dark:border-neutral-800 px-1.5 p-0.5 rounded text-xs"
+                  >
+                    {dayjs(updatedDate).fromNow()}
+                  </time>
                 </div>
               )
             }
