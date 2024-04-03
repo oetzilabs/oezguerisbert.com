@@ -2,7 +2,7 @@
 title: "In Fear of Judgement to OSS"
 description: "In this blog I will talk about my fear of the thought to open source my projects"
 pubDate: "Apr 3 2024 10:00:00 GMT+0100"
-updatedAt: "Apr 3 2024 11:50:00 GMT+0100"
+updatedDate: "Apr 3 2024 11:50:00 GMT+0100"
 heroImage: '/03-04-2024/in-fear-of-open-source-judgement.png'
 status: "published"
 ---
