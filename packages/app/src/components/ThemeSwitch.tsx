@@ -16,7 +16,7 @@ export default function ThemeButton(props: { theme: "light" | "dark" }) {
     html.classList.toggle("dark");
   };
 
-  function getCookie(cname) {
+  function getCookie(cname: string) {
     let name = cname + "=";
     let ca = document.cookie.split(";");
     for (let i = 0; i < ca.length; i++) {
@@ -39,7 +39,6 @@ export default function ThemeButton(props: { theme: "light" | "dark" }) {
       }
     };
     const themeFromCookie = getCookie("theme");
-    console.log({ themeFromCookie });
     if (themeFromCookie !== " " && themeFromCookie === "dark") {
       const htmlNode = document.querySelector("html")!;
       const hasDarkTheme = htmlNode.classList.contains("dark");
