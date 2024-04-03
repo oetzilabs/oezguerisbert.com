@@ -6,9 +6,10 @@ import { SITE_TITLE } from "../consts";
 export type Props = {
   small?: boolean;
   title: string;
+  theme?: "light" | "dark";
 };
 
-const { small } = Astro.props;
+const { small, theme } = Astro.props;
 ---
 
 <header
@@ -28,8 +29,7 @@ const { small } = Astro.props;
       <HeaderLink href="/projects">Projects</HeaderLink>
     </div>
     <div class="w-max flex flex-row items-center justify-between gap-4">
-      <ThemeSwitch theme={(Astro.cookies.get("theme")?.value as "dark" | "light") ?? "dark"} client:load />
-      <HeaderLink href="/socials">Socials</HeaderLink>
+      <ThemeSwitch theme={theme ?? "light"} client:load />
     </div>
   </nav>
 </header>

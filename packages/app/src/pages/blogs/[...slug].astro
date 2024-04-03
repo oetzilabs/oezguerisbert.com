@@ -20,6 +20,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} theme={"light"}>
   <Content />
 </BlogPost>

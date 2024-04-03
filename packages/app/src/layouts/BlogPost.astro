@@ -6,7 +6,9 @@ import ClientFormattedDate from "../components/FormattedDate.client";
 
 const { pathname } = Astro.url;
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  theme?: "light" | "dark";
+};
 
 const { title, description, pubDate, updatedDate, heroImage, status } = Astro.props;
 const posts = (await getCollection("blog"))
@@ -16,7 +18,7 @@ const posts = (await getCollection("blog"))
   .slice(0, 3);
 ---
 
-<MainLayout small>
+<MainLayout small theme={Astro.props.theme}>
   <article class="flex flex-col w-full">
     <div class="w-full flex flex-col rounded-md overflow-clip">
       {heroImage && <img src={heroImage} alt="" />}

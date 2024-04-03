@@ -6,14 +6,13 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-// get cookie for theme
-const theme = Astro.cookies.get("theme")?.value || ("light" as "light" | "dark");
-
 export type Props = {
   small?: boolean;
+  theme?: "light" | "dark";
 };
 
-const { small } = Astro.props;
+const { small, theme } = Astro.props;
+console.log({ theme });
 ---
 
 <!doctype html>

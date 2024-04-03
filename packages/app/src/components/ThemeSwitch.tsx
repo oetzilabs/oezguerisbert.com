@@ -4,13 +4,32 @@ import { createSignal, onMount, onCleanup } from "solid-js";
 export default function ThemeButton(props: { theme: "light" | "dark" }) {
   const [t, setT] = createSignal(props.theme);
   const toggle = () => {
+    const oldT = t();
     setT((t) => (t === "light" ? "dark" : "light"));
-    document.cookie = `theme=${props.theme === "light" ? "dark" : "light"}; path=/`;
+    const d = new Date();
+    d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = `theme=${oldT === "light" ? "dark" : "light"}; path=/; ${expires}`;
     // get the html element
     const html = document.querySelector("html")!;
     // set the theme
     html.classList.toggle("dark");
   };
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
   onMount(() => {
     const handler = (e: KeyboardEvent) => {
       // keybind to toggle theme
@@ -19,6 +38,14 @@ export default function ThemeButton(props: { theme: "light" | "dark" }) {
         toggle();
       }
     };
+    const themeFromCookie = getCookie("theme");
+    console.log({ themeFromCookie });
+    if (themeFromCookie !== " " && themeFromCookie === "dark") {
+      const hasDarkTheme = document.body.parentNode.classList.contains("dark");
+      if (!hasDarkTheme) {
+        document.body.parentNode.classList.add("dark");
+      }
+    }
     document.addEventListener("keydown", handler);
     onCleanup(() => {
       document.removeEventListener("keydown", handler);

@@ -5,16 +5,18 @@ import FormattedDate from "../../components/FormattedDate.astro";
 
 export const prerender = true;
 
+const theme = Astro.cookies.get("theme")?.value as "light" | "dark" | undefined;
+
 const posts = (await getCollection("blog"))
   .filter((p) => ["published", "draft", "archived"].includes(p.data.status))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
-<MainLayout small>
+<MainLayout small theme={theme}>
   <section class="flex flex-col w-full">
     {
       posts.length > 0 ? (
-        <ul class="flex flex-col w-full">
+        <ul class="flex flex-col w-full gap-6">
           {posts.map((post) => (
             <li class="flex flex-col w-full border border-neutral-300 dark:border-neutral-800 p-4 rounded-md bg-neutral-100 dark:bg-neutral-900 shadow-sm">
               <a href={`/blogs/${post.slug}/`} class="flex flex-col w-full gap-4">

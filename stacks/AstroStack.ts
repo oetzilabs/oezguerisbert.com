@@ -4,7 +4,7 @@ import { DNSStack } from "./DNSStack";
 
 export function AstroStack({ stack, app }: StackContext) {
   const dns = use(DNSStack);
-  const { bucket } = use(StorageStack);
+  const bucket = use(StorageStack);
 
   const publicAstroApp = new AstroSite(stack, `${app.name}-app`, {
     bind: [bucket],
