@@ -41,9 +41,10 @@ export default function ThemeButton(props: { theme: "light" | "dark" }) {
     const themeFromCookie = getCookie("theme");
     console.log({ themeFromCookie });
     if (themeFromCookie !== " " && themeFromCookie === "dark") {
-      const hasDarkTheme = document.body.parentNode.classList.contains("dark");
+      const htmlNode = document.querySelector("html")!;
+      const hasDarkTheme = htmlNode.classList.contains("dark");
       if (!hasDarkTheme) {
-        document.body.parentNode.classList.add("dark");
+        htmlNode.classList.add("dark");
       }
     }
     document.addEventListener("keydown", handler);
