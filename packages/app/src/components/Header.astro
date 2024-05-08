@@ -17,19 +17,18 @@ const { small, theme } = Astro.props;
 >
   <nav
     class:list={[
-      "container gap-2 mx-auto flex flex-row items-center justify-between px-4 py-2",
+      "container gap-2 mx-auto flex flex-row items-center justify-between h-full",
       {
-        [`max-w-[800px]`]: !!small,
+        [`max-w-[1100px]`]: !!small,
       },
     ]}
   >
-    <a href="/"><h2 class="w-max font-bold">{SITE_TITLE}</h2></a>
-    <div class="container flex flex-row items-center justify-center gap-2">
+    <div class="w-max flex-1 flex flex-row items-center justify-between">
+      <HeaderLink href="/">{SITE_TITLE}</HeaderLink>
+    </div>
+    <div class="w-full flex flex-row items-center justify-end gap-0 h-full p-0">
       <HeaderLink href="/blogs">Blogs</HeaderLink>
       <HeaderLink href="/projects">Projects</HeaderLink>
-    </div>
-    <div class="w-max flex flex-row items-center justify-between gap-4">
-      <ThemeSwitch theme={theme ?? "light"} client:load />
     </div>
   </nav>
 </header>
