@@ -1,6 +1,5 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import ThemeSwitch from "./ThemeSwitch";
 import { SITE_TITLE } from "../consts";
 
 export type Props = {
@@ -9,7 +8,7 @@ export type Props = {
   theme?: "light" | "dark";
 };
 
-const { small, theme } = Astro.props;
+const { small } = Astro.props;
 ---
 
 <header
