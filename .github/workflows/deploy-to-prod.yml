@@ -27,7 +27,7 @@ jobs:
           node-version: 20
 
       - uses: pnpm/action-setup@v2
-        name: Install pnpm 
+        name: Install pnpm
         with:
           version: 8
           run_install: false
@@ -56,4 +56,8 @@ jobs:
           aws-region: eu-central-1
 
       - name: Deploy app to Production
-        run: pnpm sst deploy --stage production
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: |
+          export NODE_OPTIONS="--max-old-space-size=4096"
+          pnpm sst deploy --stage production
