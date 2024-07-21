@@ -1,5 +1,5 @@
 ---
-import "@fontsource-variable/rubik";
+import "@fontsource-variable/lora";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -30,7 +30,7 @@ const { small, theme } = Astro.props;
         class:list={[
           "container mx-auto flex flex-col px-4 pt-10",
           {
-            [`max-w-[1100px]`]: !!small,
+            [`max-w-[800px]`]: !!small,
           },
         ]}
       >

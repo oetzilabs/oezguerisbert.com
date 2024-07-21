@@ -4,9 +4,9 @@
 @tailwind variants;
 
 .astro-code.github-dark {
-  @apply bg-black border dark:border-neutral-900 !important 
+  @apply bg-black border dark:border-neutral-900 !important
 }
 
 body {
-  font-family: 'Rubik Variable', sans-serif;
+  font-family: 'Lora';
 }
