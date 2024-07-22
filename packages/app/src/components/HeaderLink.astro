@@ -12,9 +12,9 @@ const isActive = typeof href === "string" ? (href === "/" ? pathname === href : 
 <a
   href={href}
   class:list={[
-    "shadow-sm font-medium text-sm w-max h-full px-4 py-2",
+    "font-medium w-max h-full p-2",
     className,
-    { "bg-black text-white dark:bg-white dark:text-black border-0 shadow-none": isActive },
+    { "font-black": isActive },
   ]}
   {...props}
 >

@@ -44,7 +44,10 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.12.2(@types/node@20.9.0)(typescript@5.5.2))(tailwindcss@3.4.4)
-      '@fontsource-variable/lora':
+      '@fontsource-variable/eb-garamond':
+        specifier: ^5.0.19
+        version: 5.0.19
+      '@fontsource/eb-garamond':
         specifier: ^5.0.18
         version: 5.0.18
       '@tailwindcss/typography':
@@ -1342,8 +1345,11 @@ packages:
     resolution: {integrity: sha512-JUFJad5lv7jxj926GPgymrWQxxjPYuJNiNjNMzqT+HiuP6Vl3dk5xzG+8sTX96np0ZAluvaMzPsjhHZ5rNuNQQ==}
     engines: {node: '>=14'}
 
-  '@fontsource-variable/lora@5.0.18':
-    resolution: {integrity: sha512-Q1FCENeJuPH2TNUM4FuGnfrxpiWqdKpJgcQc0SDfI3+xjZ+T4Ot05CqI8oGVrEZHQUzs3P0RnlgsQjxsPGzk8A==}
+  '@fontsource-variable/eb-garamond@5.0.19':
+    resolution: {integrity: sha512-CWMCwZ4jPipeKxA+0h33Ex08YggBjHJ1ubWFuOdNqa3lbuLmn/e+NInXbSvQcqFjV4M6QxGKiUfVC7CtVFmKAg==}
+
+  '@fontsource/eb-garamond@5.0.18':
+    resolution: {integrity: sha512-rsk3YZnOTh1Bet0EIoI1b8X4fuFLxwd+kVyizkZ6M3bpGMA2KvnAixFOo+uzjoNZ3c74CqRWckaPHgTJeTEZFA==}
 
   '@graphql-tools/executor@0.0.18':
     resolution: {integrity: sha512-xZC0C+/npXoSHBB5bsJdwxDLgtl1Gu4fL9J2TPQmXoZC3L2N506KJoppf9LgWdHU/xK04luJrhP6WjhfkIN0pQ==}
@@ -7814,7 +7820,9 @@ snapshots:
 
   '@fastify/busboy@2.0.0': {}
 
-  '@fontsource-variable/lora@5.0.18': {}
+  '@fontsource-variable/eb-garamond@5.0.19': {}
+
+  '@fontsource/eb-garamond@5.0.18': {}
 
   '@graphql-tools/executor@0.0.18(graphql@16.8.1)':
     dependencies:

@@ -21,13 +21,13 @@ const posts = (await getCollection("blog"))
 ---
 
 <MainLayout small theme={Astro.props.theme}>
-  <article class="flex flex-col w-full">
+  <article class="flex flex-col w-full h-full">
     <div class="w-full flex flex-col rounded-md overflow-clip">
       {heroImage && <img src={heroImage} alt="" />}
     </div>
-    <div class="prose prose-xl max-w-none prose-neutral dark:prose-invert w-full">
-      <div class="flex flex-col gap-2 py-4 w-full pb-24">
-        <div class="flex flex-col gap-8 w-full">
+    <div class="prose prose-xl max-w-none prose-neutral dark:prose-invert w-full h-full">
+      <div class="flex flex-col gap-2 py-4 w-full pb-24 h-full">
+        <div class="flex flex-col gap-8 w-full h-max">
           <div class="flex flex-row justify-between w-full gap-2">
             <div class="w-max flex flex-row gap-2">
               {
@@ -117,33 +117,34 @@ const posts = (await getCollection("blog"))
               )
             }
           </div>
-          <div class="flex flex-col gap-4 w-full">
+          <div class="flex flex-col gap-4 w-full h-max">
             <h1 class="w-full my-0">{title}</h1>
-            <span class="w-full text-xs">{description}</span>
+            <span class="w-full text-base">{description}</span>
           </div>
         </div>
-        <div class="w-full text-justify">
+        <div class="w-full text-justify flex flex-col min-h-[calc(100svh-568px)]">
           <slot class="w-full" />
         </div>
+        <div class="grow items-start flex flex-col justify-start" />
         {
           posts.length > 0 ? (
-            <>
-              <hr class="w-full my-2" />
+            <div class="flex flex-col items-start w-full gap-6 pt-4">
+              <hr class="w-full my-0" />
               <div class="flex flex-col items-start w-full gap-2">
                 <h2 class="w-full">More Blogs</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 w-full">
                   {posts.map((b) => (
                     <a
                       href={`/blogs/${b.slug}`}
-                      class="w-full border border-neutral-300 dark:border-neutral-700 rounded-md p-4 bg-white dark:bg-black no-underline shadow-none hover:shadow-md transition-shadow duration-200 ease-in-out gap-2 flex flex-col items-start justify-start"
+                      class="w-full p-3 border border-neutral-200 darkj:border-neutral-800 no-underline gap-2 flex flex-col items-start justify-start"
                     >
-                      <FormattedDate date={b.data.pubDate} />
-                      <span class="w-full py-0">{b.data.title}</span>
+                      <span class="w-full py-0 text-base">{b.data.title}</span>
+                      <FormattedDate date={b.data.pubDate} relative/>
                     </a>
                   ))}
                 </div>
               </div>
-            </>
+            </div>
           ) : null
         }
       </div>

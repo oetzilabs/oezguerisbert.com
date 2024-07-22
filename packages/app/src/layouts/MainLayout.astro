@@ -1,5 +1,5 @@
 ---
-import "@fontsource-variable/lora";
+import "@fontsource/eb-garamond";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -23,12 +23,12 @@ const { small, theme } = Astro.props;
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-white dark:bg-black text-black dark:text-white">
+  <body class="bg-white dark:bg-black text-black dark:text-white flex-1 overflow-auto px-4">
     <Header title={SITE_TITLE} small={small} />
-    <main class="py-10 bg-neutral-50 dark:bg-neutral-950">
+    <main class="pt-14 flex flex-col min-h-min">
       <div
         class:list={[
-          "container mx-auto flex flex-col px-4 pt-10",
+          "container mx-auto flex flex-col h-full px-4",
           {
             [`max-w-[800px]`]: !!small,
           },

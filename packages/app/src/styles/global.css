@@ -4,9 +4,20 @@
 @tailwind variants;
 
 .astro-code.github-dark {
-  @apply bg-black border dark:border-neutral-900 !important
+  @apply bg-black border dark:border-neutral-900 !important;
 }
 
-body {
-  font-family: 'Lora';
+@layer base {
+  ::-webkit-scrollbar {
+    @apply bg-transparent;
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400 dark:bg-neutral-600 rounded-full cursor-pointer border-2 border-transparent;
+  }
 }
