@@ -19,7 +19,8 @@
     "sst": "2.43.4",
     "typescript": "^5.2.2"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "workspaces": ["packages/*"],
+  "engines": {
+    "pnpm": "9"
+  }
 }
