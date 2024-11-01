@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["EB Garamond", ...defaultTheme.fontFamily.sans],
+        sans: ["Geist Mono", "Inter var", ...defaultTheme.fontFamily.sans],
       },
     },
   },

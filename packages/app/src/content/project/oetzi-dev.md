@@ -6,8 +6,8 @@ updatedDate: 'Mar 26 2024 8:00:00 GMT+0100'
 status: 'published'
 ---
 
-On `oetzi.dev` I'm hosting my project ideas, prototypes and several small sized projects.
+Welcome to `oetzi.dev`, where I share my latest project ideas, prototypes, and experimental projects. This site is a place for innovation, where I develop and validate concepts to see what could turn into something impactful.
 
-I have a lot of ideas for new projects, many of them need to be validated first on paper, if it allows me to put effort into it.
+I have a variety of ideas, each of which begins as a rough concept that I refine and explore. Some projects take off immediately, while others undergo rounds of validation and iteration on paper before I commit fully.
 
-I will update this page if I can share some of those prototypes and projects. Currently the projects are all in development.
+I'll be updating this page as my prototypes and projects take shape and become shareable. For now, each project is still in active development, so stay tuned for what's next.

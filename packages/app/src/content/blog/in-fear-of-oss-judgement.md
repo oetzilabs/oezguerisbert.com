@@ -33,4 +33,4 @@ How did you work on your projects and thought: "Yea, lets open source this." - j
 
 And for those who struggle with this too, let me know what your thoughts are on this topic too. I would love to hear more about open source and the community around it.
 
-If you have any tips, let me know at my [Twitter](https://twitter.com/oezguerisbert).
+If you have any tips, let me know at my [Twitter](https://twitter.com/oezguerisbert) or [BlueSky](https://bsky.app/profile/oetzi.bsky.social) profile.

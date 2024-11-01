@@ -25,7 +25,9 @@ const posts = (await getCollection("blog"))
     <div class="w-full flex flex-col rounded-md overflow-clip">
       {heroImage && <img src={heroImage} alt="" />}
     </div>
-    <div class="prose prose-xl max-w-none prose-neutral dark:prose-invert w-full h-full">
+    <div
+      class="prose max-w-none prose-neutral dark:prose-invert w-full h-full prose-p:text-justify prose-p:leading-snug prose-a:font-semibold"
+    >
       <div class="flex flex-col gap-2 py-4 w-full pb-24 h-full">
         <div class="flex flex-col gap-8 w-full h-max">
           <div class="flex flex-row justify-between w-full gap-2">
@@ -125,7 +127,7 @@ const posts = (await getCollection("blog"))
         <div class="w-full text-justify flex flex-col min-h-[calc(100svh-568px)]">
           <slot class="w-full" />
         </div>
-        <div class="grow items-start flex flex-col justify-start" />
+        <div class="grow items-start flex flex-col justify-start"></div>
         {
           posts.length > 0 ? (
             <div class="flex flex-col items-start w-full gap-6 pt-4">
@@ -136,10 +138,10 @@ const posts = (await getCollection("blog"))
                   {posts.map((b) => (
                     <a
                       href={`/blogs/${b.slug}`}
-                      class="w-full p-3 border border-neutral-200 darkj:border-neutral-800 no-underline gap-2 flex flex-col items-start justify-start"
+                      class="w-full p-3 border border-neutral-200 dark:border-neutral-800 no-underline gap-2 flex flex-col items-start justify-start"
                     >
                       <span class="w-full py-0 text-base">{b.data.title}</span>
-                      <FormattedDate date={b.data.pubDate} relative/>
+                      <FormattedDate date={b.data.pubDate} relative />
                     </a>
                   ))}
                 </div>

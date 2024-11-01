@@ -24,7 +24,7 @@ const project = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
-    status: z.enum(["draft", "published", "archived", "hidden","template"]),
+    status: z.enum(["draft", "published", "archived", "hidden", "template"]),
   }),
 });
 

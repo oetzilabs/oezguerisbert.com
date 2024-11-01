@@ -10,12 +10,12 @@ const theme = Astro.cookies.get("theme")?.value as "light" | "dark" | undefined;
 const production = import.meta.env.MODE === "production";
 
 const posts = (await getCollection("blog"))
-.filter((p) => (production ? ["published", "archived"] : ["published", "draft", "archived"]).includes(p.data.status))
+  .filter((p) => (production ? ["published", "archived"] : ["published", "draft", "archived"]).includes(p.data.status))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <MainLayout small theme={theme}>
-  <section class="flex flex-col w-full">
+  <section class="flex flex-col w-full pb-20">
     {
       posts.length > 0 ? (
         <ul class="flex flex-col w-full gap-2">

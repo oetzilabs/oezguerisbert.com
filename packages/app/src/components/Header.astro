@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+import ThemeToggle from "./ToggleBrightness";
 
 export type Props = {
   small?: boolean;
@@ -11,9 +12,7 @@ export type Props = {
 const { small } = Astro.props;
 ---
 
-<header
-  class="fixed top-0 w-full flex flex-row items-center justify-center bg-white dark:bg-black"
->
+<header class="fixed top-0 w-full flex flex-row items-center justify-center bg-white dark:bg-black">
   <nav
     class:list={[
       "container gap-2 mx-auto flex flex-row items-center justify-between h-full py-2",
@@ -23,9 +22,10 @@ const { small } = Astro.props;
     ]}
   >
     <div class="w-max flex-1 flex flex-row items-center justify-between">
-      <a class="font-black w-max" href="/">{SITE_TITLE}</a>
+      <a class="font-black w-max" href="/">Home</a>
     </div>
-    <div class="w-full flex flex-row items-center justify-end gap-0 h-full p-0">
+    <div class="w-full flex flex-row items-center justify-end gap-2 h-full p-0">
+      <ThemeToggle client:load />
       <HeaderLink href="/blogs">Blogs</HeaderLink>
       <HeaderLink href="/projects">Projects</HeaderLink>
     </div>
