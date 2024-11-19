@@ -25,13 +25,13 @@ export default function ThemeToggle() {
 
   return (
     <button
-      class="bg-neutral-200 dark:bg-neutral-800 rounded-full p-2 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors"
+      class="flex flex-row items-center gap-2 justify-center bg-neutral-200 dark:bg-neutral-800 rounded-sm px-2 py-1.5 text-neutral-600 dark:text-white hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors"
       onClick={handleClick}
     >
       {theme() === "light" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="size-4"
+          class="size-3"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -44,7 +44,7 @@ export default function ThemeToggle() {
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="size-4"
+          class="size-3"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -63,6 +63,7 @@ export default function ThemeToggle() {
           <path d="m19.07 4.93-1.41 1.41" />
         </svg>
       )}
+      <span class="text-xs">{theme() === "light" ? "dark" : "light"}</span>
     </button>
   );
 }

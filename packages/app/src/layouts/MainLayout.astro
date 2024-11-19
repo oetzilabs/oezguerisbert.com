@@ -23,12 +23,12 @@ const { small, theme } = Astro.props;
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-white dark:bg-black text-black dark:text-white flex-1 overflow-auto px-4">
+  <body class="bg-white dark:bg-black text-black dark:text-white flex-1 overflow-auto px-4 md:px-0">
     <Header title={SITE_TITLE} small={small} />
-    <main class="pt-14 flex flex-col min-h-min">
+    <main class="flex flex-col min-h-min">
       <div
         class:list={[
-          "container mx-auto flex flex-col h-full px-4",
+          "container mx-auto flex flex-col h-full",
           {
             [`max-w-[800px]`]: !!small,
           },
@@ -37,6 +37,6 @@ const { small, theme } = Astro.props;
         <slot />
       </div>
     </main>
-    <Footer />
+    <Footer small={small} />
   </body>
 </html>

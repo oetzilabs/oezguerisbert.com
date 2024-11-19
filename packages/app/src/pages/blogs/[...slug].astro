@@ -7,8 +7,12 @@ export const prerender = true;
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
 
+  const production = import.meta.env.MODE === "production";
+
   return posts
-    .filter((p) => ["published", "draft", "archived", "hidden"].includes(p.data.status))
+    .filter((p) =>
+      (production ? ["published", "archived"] : ["published", "draft", "archived", "hidden"]).includes(p.data.status)
+    )
     .map((post) => ({
       params: { slug: post.slug },
       props: post,

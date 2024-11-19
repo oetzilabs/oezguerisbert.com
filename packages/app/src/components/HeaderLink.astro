@@ -11,11 +11,7 @@ const isActive = typeof href === "string" ? (href === "/" ? pathname === href : 
 
 <a
   href={href}
-  class:list={[
-    "font-medium w-max h-full p-2",
-    className,
-    { "font-black": isActive },
-  ]}
+  class:list={["font-semibold w-max h-full p-2 text-sm", className, { "font-black": isActive }]}
   {...props}
 >
   <slot />
