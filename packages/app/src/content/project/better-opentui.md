@@ -2,6 +2,7 @@
 title: 'Building a TUI: Why I Rewrote Everything from Scratch'
 description: 'In this post, I share the journey of creating a terminal user interface (TUI) framework from scratch (by looking at the existing code at sst/opentui). I decided to improve uppon the opentui project with Effect-TS for the API. Here are the technical challenges I faced and the decisions I made'
 pubDate: 'Aug 27 2025'
+updatedDate: 'Sep 1 2025'
 status: 'published'
 ---
 
@@ -98,3 +99,57 @@ Like I said I am fairly new to Effect, so I am not sure if this is possible. Per
 Rewriting the OpenTUI project from scratch is a challenging but rewarding experience. By using Effect for functional programming and Zig for the backend, I am able to create a TUI framework that is performant, safe, and extensible. This approach has some advantages over the original project, and I believe it will be a great foundation for building modern terminal applications.
 
 The project needs a little bit more work, since I am aiming to publish the repo soon. I am also still deciding of the name, since "better-opentui" sounds unserious.
+
+## Update (1st September 2025)
+
+Here is the repo: [better-opentui](https://github.com/oetzilabs/better-opentui)
+
+I added a few components, and examples:
+
+```ts title="examples/multi-select.ts"
+import type { SelectOption } from "@better-opentui/core/src/renderer/elements/multi-select";
+import { PositionRelative } from "@better-opentui/core/src/renderer/utils/position";
+import { run } from "@better-opentui/core/src/run";
+import { Effect } from "effect";
+
+if (import.meta.main) {
+  run({
+    // debug: true,
+    setup: Effect.fn("run.setup")(function* (cli) {
+      const parentContainer = yield* cli.createElement("group");
+
+      const multiSelectElement = yield* parentContainer.create("multi-select", {
+        position: PositionRelative.make(1),
+        visible: true,
+        focused: true,
+        options: [
+          { name: "Apple", id: "apple", value: "apple", description: "A red or green fruit" },
+          { name: "Banana", id: "banana", value: "banana", description: "A yellow curved fruit" },
+          { name: "Cherry", id: "cherry", value: "cherry", description: "A small red fruit" },
+          { name: "Date", id: "date", value: "date", description: "A sweet brown fruit" },
+          { name: "Elderberry", id: "elderberry", value: "elderberry", description: "A dark purple berry" },
+          { name: "Fig", id: "fig", value: "fig", description: "A soft pear-shaped fruit" },
+          { name: "Grape", id: "grape", value: "grape", description: "A small round fruit" },
+          { name: "Honeydew", id: "honeydew", value: "honeydew", description: "A large green melon" },
+        ],
+        selectedIds: ["apple", "cherry"], // Pre-select Apple and Cherry
+        search: { enabled: true, location: "bottom" },
+        showDescription: true,
+        width: "100%",
+        height: 10,
+        onSelect: (options) => Effect.gen(function* () {}),
+      });
+
+      yield* parentContainer.add(multiSelectElement);
+
+      yield* cli.add(parentContainer);
+    }),
+    on: {
+      start: Effect.fn("multi-select.start")(function* (cli) {}),
+      resize: Effect.fn(function* (_width, _height) {}),
+      exit: Effect.fn(function* (_reason) {}),
+      panic: Effect.fn(function* (_err) {}),
+    },
+  });
+}
+```
