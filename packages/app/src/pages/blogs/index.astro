@@ -3,7 +3,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
-export const prerender = true;
+export const prerender = false;
 
 const theme = Astro.cookies.get("theme")?.value as "light" | "dark" | undefined;
 

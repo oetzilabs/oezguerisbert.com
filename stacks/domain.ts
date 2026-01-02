@@ -1,5 +1,5 @@
 export const domain = (() => {
-  if ($app.stage === "production") return "oezguerisbert.com"
+  if ($app.stage === "main") return "oezguerisbert.com"
   if ($app.stage === "dev") return "dev.oezguerisbert.com"
   return `${$app.stage}.dev.oezguerisbert.com`
 })()

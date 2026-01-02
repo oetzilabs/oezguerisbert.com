@@ -16,10 +16,13 @@ export default function ThemeToggle() {
 
   createEffect(() => {
     const t = theme();
-    if (t === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    // Only access document on the client side
+    if (typeof document !== "undefined") {
+      if (t === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     }
   });
 

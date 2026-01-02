@@ -5,6 +5,10 @@
 
 declare module "sst" {
   export interface Resource {
+    "Web": {
+      "type": "sst.cloudflare.Astro"
+      "url": string
+    }
   }
 }
 /// <reference path="sst-env.d.ts" />
