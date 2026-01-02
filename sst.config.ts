@@ -1,21 +1,15 @@
-import { SSTConfig } from "sst";
-import { StorageStack } from "./stacks/StorageStack";
-import { DNSStack } from "./stacks/DNSStack";
-import { AstroStack } from "./stacks/AstroStack";
+/// <reference path="./.sst/platform/config.d.ts" />
 
-export default {
-  config(_input) {
+export default $config({
+  app(input) {
     return {
       name: "oezguerisbert-com",
-      region: "eu-central-1",
+      removal: input?.stage === "production" ? "retain" : "remove",
+      protect: ["production"].includes(input?.stage),
+      home: "cloudflare",
     };
   },
-  stacks(app) {
-    app.setDefaultRemovalPolicy("destroy");
-    app
-      //
-      .stack(DNSStack)
-      .stack(StorageStack)
-      .stack(AstroStack);
+  async run() {
+    await import("./stacks/astro.js");
   },
-} satisfies SSTConfig;
+});

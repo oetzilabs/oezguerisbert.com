@@ -13,14 +13,9 @@
     "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
   },
   "devDependencies": {
-    "@tsconfig/node18": "18.2.2",
-    "aws-cdk-lib": "2.142.1",
-    "constructs": "10.3.0",
-    "sst": "2.43.4",
+    "@tsconfig/node24": "24.0.3",
+    "sst": "3.17.23",
     "typescript": "^5.2.2"
   },
-  "workspaces": ["packages/*"],
-  "engines": {
-    "pnpm": "9"
-  }
+  "workspaces": ["packages/*"]
 }
