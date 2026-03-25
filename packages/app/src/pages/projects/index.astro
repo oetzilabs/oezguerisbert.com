@@ -17,7 +17,7 @@ const projects = (await getCollection("project"))
         <ul class="flex flex-col w-full">
           {projects.map((post) => (
             <li class="flex flex-col w-full border border-neutral-300 dark:border-neutral-800 p-4 rounded-md bg-neutral-100 dark:bg-neutral-900 shadow-sm">
-              <a href={`/projects/${post.slug}/`} class="flex flex-col w-full gap-4">
+              <a href={`/projects/${post.id}/`} class="flex flex-col w-full gap-4">
                 <img src={post.data.heroImage} alt="" class="rounded-md" />
                 <div class="flex flex-col gap-3">
                   <p class="text-xs text-neutral-500">

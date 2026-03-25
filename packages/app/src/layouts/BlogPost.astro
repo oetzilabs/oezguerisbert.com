@@ -16,7 +16,7 @@ const production = import.meta.env.MODE === "production";
 
 const { title, description, pubDate, updatedDate, heroImage, status } = Astro.props;
 const posts = (await getCollection("blog"))
-  .filter((p) => !pathname.includes(p.slug))
+  .filter((p) => !pathname.includes(p.id))
   .filter((p) => (production ? ["published", "archived"] : ["published", "draft", "archived"]).includes(p.data.status))
   .sort((a, b) => (a.data.updatedDate ?? a.data.pubDate).valueOf() - (b.data.updatedDate ?? b.data.pubDate).valueOf())
   .slice(0, 3);
@@ -139,7 +139,7 @@ const posts = (await getCollection("blog"))
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 w-full">
                   {posts.map((b) => (
                     <a
-                      href={`/blogs/${b.slug}`}
+                      href={`/blogs/${b.id}`}
                       class="w-full p-3 border border-neutral-200 dark:border-neutral-800 no-underline gap-2 flex flex-col items-start justify-start"
                     >
                       <span class="w-full py-0 text-base">{b.data.title}</span>

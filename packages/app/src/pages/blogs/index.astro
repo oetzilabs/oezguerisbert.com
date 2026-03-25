@@ -21,7 +21,7 @@ const posts = (await getCollection("blog"))
         <ul class="flex flex-col w-full border border-neutral-200 dark:border-neutral-900">
           {posts.map((post) => (
             <a
-              href={`/blogs/${post.slug}/`}
+              href={`/blogs/${post.id}/`}
               class:list={[
                 "flex flex-col w-full gap-4",
                 "border-b border-neutral-200 dark:border-neutral-900 last:border-b-0",
