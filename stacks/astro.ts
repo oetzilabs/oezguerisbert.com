@@ -1,6 +1,6 @@
 import { domain } from "./domain";
 
-new sst.cloudflare.x.Astro("Web", {
+new sst.cloudflare.StaticSite("Web", {
   domain: domain,
   path: "packages/app",
   environment: {
