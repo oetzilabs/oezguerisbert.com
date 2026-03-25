@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@tsconfig/node24": "24.0.3",
-    "sst": "3.17.23",
+    "sst": "^4.5.10",
     "typescript": "^5.2.2"
   },
   "workspaces": ["packages/*"]
