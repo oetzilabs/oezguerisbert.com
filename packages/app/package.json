@@ -24,7 +24,6 @@
     "@solid-primitives/storage": "^4.2.1",
     "@tailwindcss/typography": "^0.5.12",
     "astro": "6.0.8",
-    "astro-sst": "2.43.4",
     "dayjs": "^1.11.10",
     "solid-js": "1.8.17",
     "tailwindcss": "^3.4.4",

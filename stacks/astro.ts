@@ -9,7 +9,7 @@ new sst.cloudflare.StaticSite("Web", {
   },
   build: {
     command: "bun run build",
-    output: "./dist",
+    output: "dist/client",
   },
 })
 
