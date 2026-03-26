@@ -7,4 +7,9 @@ new sst.cloudflare.StaticSite("Web", {
     // For astro config
     SST_STAGE: $app.stage,
   },
+  build: {
+    command: "bun run build",
+    output: "./dist",
+  },
 })
+

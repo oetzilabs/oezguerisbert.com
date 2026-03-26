@@ -9,7 +9,7 @@ import cloudflare from "@astrojs/cloudflare"
 export default defineConfig({
   site: "https://oezguerisbert.com",
   integrations: [mdx(), sitemap(), solid(), tailwind()],
-  output: "server",
+  output: "static",
   adapter: cloudflare({
     imageService: "passthrough",
   }),
