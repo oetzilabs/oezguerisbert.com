@@ -4,44 +4,49 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout small>
   <div class="py-10 pb-40">
-    <div
-      class="prose max-w-none prose-neutral dark:prose-invert prose-p:text-justify prose-p:leading-snug prose-a:font-semibold"
-    >
-      <blockquote>
-        Looking for my CV? Find it <a href="/cvs/cv.pdf">here</a>.
-      </blockquote>
-      <br />
-      <br />
-      <h1>Welcome to my Portfolio</h1>
-      <p>
-        I'm Özgür Isbert, a dedicated software developer currently based in Germany, with experience working across
-        Germany and Switzerland. I’m passionate about creating powerful digital solutions and enjoy diving into complex
-        projects, from full-stack applications to system architecture.
-      </p>
-      <p>
-        My primary expertise lies in TypeScript for both front-end and back-end development, though I regularly explore
-        various languages and frameworks to stay ahead in tech. I'm particularly drawn to new tools and methodologies,
-        making experimentation and continuous learning a core part of my work.
-      </p>
-      <p>
-        If you’re looking to collaborate or just want to connect, feel free to <a href="mailto:oezguerisbert@gmail.com"
-          >reach out</a
-        >.
-      </p>
-      <p>
-        Explore my <a href="/projects">projects</a> for hands-on examples of my work and check out my <a href="/blogs"
-          >blogs</a
-        > where I share insights, tutorials, and lessons learned along the way.
-      </p>
-      <p>
-        Currently, <a href="https://oetzi.dev">oetzi.dev</a> is a space I’m reserving for future side projects—stay tuned!
-      </p>
-      <p>
-        From frontend and backend development to cloud deployments, I’ve gained strong experience through self-driven
-        learning and a formal apprenticeship as a software engineer. My goal is to leave a meaningful impact on the tech
-        landscape while contributing to the community.
-      </p>
-      <p>Thank you for visiting my portfolio! Let’s connect and build something extraordinary together.</p>
+    <div class="flex flex-col gap-6">
+      <div class="flex flex-col gap-1">
+        <span class="label text-neutral-500">Welcome to</span>
+        <h1 class="heading-xl">Özgür Isbert</h1>
+        <span class="text-sm font-sans text-neutral-500 dark:text-neutral-400">Full Stack Developer / Software Engineer</span>
+      </div>
+      <div class="tech-divider" />
+      <div>
+        <a href="/cvs/cv.pdf" class="inline-flex items-center gap-2 border border-neutral-400 dark:border-neutral-600 px-3 py-1.5 text-xs font-sans font-semibold uppercase tracking-[0.1em] hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors duration-100">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+          Download CV
+        </a>
+      </div>
+      <div class="tech-divider" />
+      <div
+        class="prose max-w-none prose-neutral dark:prose-invert prose-p:text-justify prose-p:leading-snug prose-a:font-semibold"
+      >
+        <p>
+          I'm a dedicated software developer currently based in Germany, with experience working across
+          Germany and Switzerland. I'm passionate about creating powerful digital solutions and enjoy diving into complex
+          projects, from full-stack applications to system architecture.
+        </p>
+        <p>
+          My primary expertise lies in TypeScript for both front-end and back-end development, though I regularly explore
+          various languages and frameworks to stay ahead in tech. I'm particularly drawn to new tools and methodologies,
+          making experimentation and continuous learning a core part of my work.
+        </p>
+        <p>
+          If you're looking to collaborate or just want to connect, feel free to <a href="mailto:oezguerisbert@gmail.com">reach out</a>.
+        </p>
+        <p>
+          Explore my <a href="/projects">projects</a> for hands-on examples of my work and check out my <a href="/blogs">blogs</a> where I share insights, tutorials, and lessons learned along the way.
+        </p>
+        <p>
+          Currently, <a href="https://oetzi.dev">oetzi.dev</a> is a space I'm reserving for future side projects—stay tuned!
+        </p>
+        <p>
+          From frontend and backend development to cloud deployments, I've gained strong experience through self-driven
+          learning and a formal apprenticeship as a software engineer. My goal is to leave a meaningful impact on the tech
+          landscape while contributing to the community.
+        </p>
+        <p>Thank you for visiting my portfolio! Let's connect and build something extraordinary together.</p>
+      </div>
     </div>
   </div>
 </MainLayout>

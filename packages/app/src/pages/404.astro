@@ -1,12 +1,14 @@
 ---
-// this is a custom 404 page
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout small>
-  <div class="flex flex-col items-center py-20">
-    <h1 class="text-4xl font-medium">404</h1>
-    <p class="text-xl">I'm sorry but this page doesn't exist.</p>
-    <a href="/" class="mt-4 bg-blue-500 px-3 py-1 rounded-md text-sm">Go back home</a>
+  <div class="flex flex-col items-center py-20 gap-6">
+    <h1 class="heading-xl text-center">404</h1>
+    <div class="tech-divider max-w-[200px]" />
+    <p class="text-sm font-sans text-neutral-500">This page does not exist</p>
+    <a href="/" class="border border-neutral-400 dark:border-neutral-600 px-4 py-2 text-xs font-sans font-semibold uppercase tracking-[0.1em] hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors duration-100">
+      Return Home
+    </a>
   </div>
 </MainLayout>

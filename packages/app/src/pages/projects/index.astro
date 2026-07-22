@@ -11,29 +11,35 @@ const projects = (await getCollection("project"))
 ---
 
 <MainLayout small>
-  <section class="flex flex-col w-full pb-20">
+  <section class="flex flex-col w-full pb-20 gap-6">
+    <div class="flex flex-col gap-1 animate-fade-up">
+      <span class="label text-neutral-500">Hands-on work</span>
+      <h1 class="heading-xl">Projects</h1>
+    </div>
     {
       projects.length > 0 ? (
-        <ul class="flex flex-col w-full">
-          {projects.map((post) => (
-            <li class="flex flex-col w-full border border-neutral-300 dark:border-neutral-800 p-4 rounded-md bg-neutral-100 dark:bg-neutral-900 shadow-sm">
-              <a href={`/projects/${post.id}/`} class="flex flex-col w-full gap-4">
-                <img src={post.data.heroImage} alt="" class="rounded-md" />
-                <div class="flex flex-col gap-3">
-                  <p class="text-xs text-neutral-500">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                  <div class="flex flex-col gap-1">
-                    <h1 class="font-bold text-lg w-full">{post.data.title}</h1>
-                    <span class="font-medium text-md w-full">{post.data.description}</span>
-                  </div>
+        <div class="grid grid-cols-1 gap-2 w-full">
+          {projects.map((post, i) => (
+            <a
+              href={`/projects/${post.id}/`}
+              style={`animation-delay: ${i * 0.06}s`}
+              class="card no-underline flex flex-col w-full gap-4 animate-fade-up"
+            >
+              {post.data.heroImage && (
+                <img src={post.data.heroImage} alt="" class="border border-neutral-300 dark:border-neutral-700" />
+              )}
+              <div class="flex flex-col gap-2">
+                <div class="flex flex-row items-center justify-between gap-2 w-full">
+                  <h2 class="font-heading italic text-base">{post.data.title}</h2>
+                  <FormattedDate date={post.data.pubDate} />
                 </div>
-              </a>
-            </li>
+                <span class="text-xs font-sans text-neutral-500 w-full">{post.data.description}</span>
+              </div>
+            </a>
           ))}
-        </ul>
+        </div>
       ) : (
-        <p class="text-center">There are currently no projects.</p>
+        <p class="text-sm font-sans text-neutral-500 text-center">There are currently no projects.</p>
       )
     }
   </section>

@@ -6,7 +6,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Geist Mono", "Inter var", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        heading: ["Playfair Display", ...defaultTheme.fontFamily.serif],
+        mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },

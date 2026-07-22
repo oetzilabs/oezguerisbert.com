@@ -1,5 +1,6 @@
 ---
-import "@fontsource/geist-mono";
+import "@fontsource/inter";
+import "@fontsource/playfair-display";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -7,30 +8,37 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 export type Props = {
   small?: boolean;
-  theme?: "light" | "dark";
 };
 
-const { small, theme } = Astro.props;
+const { small } = Astro.props;
+const theme = Astro.cookies.get("theme")?.value;
+const isDark = theme !== "light";
 ---
 
 <!doctype html>
 <html
   lang="en"
   class:list={{
-    dark: theme === "dark",
+    dark: isDark,
   }}
 >
   <head>
+    <script is:inline>
+      (function() {
+        var t = document.cookie.match(/theme=([^;]+)/)?.[1];
+        if (t !== "light") document.documentElement.classList.add("dark");
+      })();
+    </script>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-white dark:bg-black text-black dark:text-white flex-1 overflow-auto px-4 md:px-0">
+  <body class="bg-white dark:bg-black text-black dark:text-white flex-1 overflow-auto px-4 md:px-0 font-sans">
     <Header title={SITE_TITLE} small={small} />
-    <main class="flex flex-col min-h-min">
+    <main class="flex flex-col min-h-min pt-10 md:pt-12">
       <div
         class:list={[
           "container mx-auto flex flex-col h-full",
           {
-            [`max-w-[800px]`]: !!small,
+            "max-w-[800px]": !!small,
           },
         ]}
       >
